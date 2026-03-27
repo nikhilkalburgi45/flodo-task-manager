@@ -1,0 +1,33 @@
+name: flodo_task_manager
+description: Flodo AI Take-Home — Task Manager Flutter App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP requests to our Node.js backend
+  http: ^1.2.1
+
+  # State management — simple and beginner-friendly
+  provider: ^6.1.2
+
+  # Saving draft text when user swipes back
+  shared_preferences: ^2.2.3
+
+  # Date formatting (e.g. "15 Jul 2025")
+  intl: ^0.19.0
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
