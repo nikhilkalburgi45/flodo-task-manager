@@ -198,6 +198,8 @@ static const String _baseUrl = 'http://10.0.2.2:5000/api';
 
 ---
 
+<<<<<<< HEAD
+
 ## Engineering Decisions
 
 ### Why Node.js instead of Python?
@@ -212,17 +214,22 @@ Redis was deliberately excluded. In a task manager with simple CRUD, there is no
 
 Four indexes on the Task collection:
 
-| Index                          | Type         | Purpose                                        |
-| ------------------------------ | ------------ | ---------------------------------------------- |
-| `{ status: 1 }`                | Single field | Status filter queries                          |
-| `{ createdAt: -1 }`            | Single field | Default sort on list view                      |
-| `{ title: "text" }`            | Text index   | Full-text title search                         |
-| `{ status: 1, createdAt: -1 }` | Compound     | Covered query — filter + sort from index alone |
+=======
+
+> > > > > > > 141d7505d2767964687e8711e3e81af8f053216a
+> > > > > > > | Index | Type | Purpose |
+> > > > > > > | ------------------------------ | ------------ | ---------------------------------------------- |
+> > > > > > > | `{ status: 1 }` | Single field | Status filter queries |
+> > > > > > > | `{ createdAt: -1 }` | Single field | Default sort on list view |
+> > > > > > > | `{ title: "text" }` | Text index | Full-text title search |
+> > > > > > > | `{ status: 1, createdAt: -1 }` | Compound | Covered query — filter + sort from index alone |
 
 ### Two-tier Rate Limiting
 
 - **Global (100/15min):** Applied to all routes. Protects reads.
 - **Write limiter (30/15min):** Applied to POST and PUT only. Writes are expensive (DB write + 2s delay) and the most likely target for abuse.
+
+<<<<<<< HEAD
 
 ### Draft Persistence
 
@@ -250,6 +257,10 @@ chore: initialize Node.js project with Express, Mongoose, and dev dependencies
 - Reviewed and adjusted all generated code — modified compound index strategy, two-tier rate limiter design, and the `isBlocked` getter logic in the Task model
 - Caught one AI mistake: initial code used `$regex` for all searches; updated to prefer MongoDB `$text` index with `$regex` as fallback for better performance
 - All architectural decisions (no Redis, two-tier rate limiting, index selection) were made independently based on the specific requirements of this app
+
+=======
+
+> > > > > > > 141d7505d2767964687e8711e3e81af8f053216a
 
 ---
 
