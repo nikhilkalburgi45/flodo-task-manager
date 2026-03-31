@@ -11,7 +11,7 @@ class ApiService {
   // 10.0.2.2 = localhost on Android emulator
   // If running on a real device, replace with your computer's local IP
   // e.g. http://192.168.1.5:5000/api
-  static const String _baseUrl = 'http://10.0.2.2:5000/api';
+  static const String _baseUrl = 'http://localhost:5000/api';
 
   static const Map<String, String> _headers = {
     'Content-Type': 'application/json',
@@ -24,7 +24,8 @@ class ApiService {
     if (search != null && search.isNotEmpty) queryParams['search'] = search;
     if (status != null && status != 'All') queryParams['status'] = status;
 
-    final uri = Uri.parse('$_baseUrl/tasks').replace(queryParameters: queryParams);
+    final uri =
+        Uri.parse('$_baseUrl/tasks').replace(queryParameters: queryParams);
 
     final response = await http.get(uri, headers: _headers);
 
