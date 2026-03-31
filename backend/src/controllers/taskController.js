@@ -7,11 +7,9 @@ const getAllTasks = async (req, res, next) => {
     const { search, status } = req.query;
     const filter = {};
 
+    // ✅ CORRECT — just use regex
     if (search) {
-      filter.$or = [
-        { $text: { $search: search } },
-        { title: { $regex: search, $options: "i" } },
-      ];
+      filter.title = { $regex: search, $options: "i" };
     }
 
     if (status) {
